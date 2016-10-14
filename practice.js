@@ -2,19 +2,22 @@
   // 1) What is the purpose of the 'this keyword'?
 
       //Answer
+			//The "this" keyword makes the object it is referring to as the subject in context.
 
   // 2) What are the four rules that govern what the 'this keyword' is bound to and describe each?
 
       //Answer
+			//1: "this" will be window whenever a function is contained in the global scope. 2: Object before dot is "this" whenever function is called by preceding dot. 3: "this" refers to the specific instance of an objected created/returned by constructor function. 4: "this" can be defined by call or apply. 
 
   // 3) What is the difference between call and apply?
 
       //Answer
+			//Apply requires array as second parameter while call needs explicit params. 
 
   // 4) What does .bind do?
 
       //Answer
-
+			// It creates a new function with "this" set to the first parameter. 
 
 //Next Problem
 
@@ -24,6 +27,13 @@
   //getUsername --> which is a function that returns the current object's username property. *Don't use 'user' instead use the 'this' keyword*
 
     //Code Here
+var user = {
+	username: "higuise",
+	email: "lalala@gmail.com",
+	getUsername: function(){
+		return this.username;
+	}
+}
 
 //Now, invoke the getUsername method and verify you got the username of the object and not anything else.
 
@@ -32,6 +42,16 @@
 
 
 // Write the function definitions which will make the following function invocations function properly.
+function Car(brand, type, year){
+	this.brand = brand,
+	this.type = type,
+	this.year = year,
+	this.move = 0,
+	this.moveCar = function(){
+		this.move += 10;	
+		return this.move;
+	}
+}
 
   //Function Invocations Here
 
@@ -55,7 +75,7 @@ var getYear = function(){
 
 //Note(no tests)
   //Code Here
-
+Car.prototype.getYear = getYear;
 
 //New Problem
 
@@ -69,14 +89,16 @@ var getMyUsername = function() {
  return this.username;
 };
 
-var userName = getMyUsername(); //Fix this
+var userName = getMyUsername.call(myUser); //Fix this
 
 //Above you're given an object, and  a function. What will the getUsername function return?
 //Note(no tests)
   //Answer Here
+	//It will return undefined. 
 
 //In the example above, what is the 'this keyword' bound to when getUsername runs?
 
   //Answer Here
+	//Bound to the global object
 
 //Fix the getMyUsername invocation so that userName will be equal to 'iliketurtles'.
