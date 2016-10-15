@@ -7,7 +7,7 @@
   // 2) What are the four rules that govern what the 'this keyword' is bound to and describe each?
 
       //Answer
-			//1: "this" will be window whenever a function is contained in the global scope. 2: Object before dot is "this" whenever function is called by preceding dot. 3: "this" refers to the specific instance of an objected created/returned by constructor function. 4: "this" can be defined by call or apply. 
+			//1: Explicit - Intentionally set, using call,apply,bind. Implicit - Implied/assumed to be true, left of the dot. Default - window if in browser. New - constructor functions. 
 
   // 3) What is the difference between call and apply?
 
